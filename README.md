@@ -1,12 +1,3 @@
----
-title: Linkedin Job Scraper MCP Server
-emoji: 💼
-colorFrom: blue
-colorTo: indigo
-sdk: docker
-pinned: false
----
-
 # LinkedIn Scraper MCP Server
 
 An automated, intelligent LinkedIn Job Scraper that runs as a Model Context Protocol (MCP) server. This allows AI assistants (like Claude) to actively search, filter, and extract job listings from LinkedIn using an automated headless browser.
@@ -15,7 +6,7 @@ An automated, intelligent LinkedIn Job Scraper that runs as a Model Context Prot
 
 If you want to connect your AI directly to the hosted remote server, use this SSE endpoint:
 
-> **👉 [INSERT YOUR HUGGING FACE SPACE URL HERE]**
+> **👉 https://anjanii-linkedin-job-scraper.hf.space/mcp**
 
 ---
 
@@ -31,7 +22,11 @@ If you want to connect your AI directly to the hosted remote server, use this SS
 
 ## 🖥️ Web Dashboard (UI)
 
-Because this project uses a custom Next.js server architecture, if you visit your server's root URL (or `http://localhost:7860`), you will see the Next.js web interface! You can use this to build a visual frontend dashboard to track jobs alongside your Claude integration.
+![Dashboard UI Preview](dashboard.png)
+
+Because this project uses a custom Next.js server architecture, if you visit your live server's root URL:
+**👉 [https://anjanii-linkedin-job-scraper.hf.space](https://anjanii-linkedin-job-scraper.hf.space)**
+(or `http://localhost:7860` locally), you will see the Next.js web interface! You can use this to build a visual frontend dashboard to track jobs alongside your Claude integration.
 
 ---
 
@@ -67,7 +62,7 @@ To run this tool locally on your own machine alongside the Claude Desktop App:
          "command": "npx",
          "args": [
            "tsx",
-           "d:/linkedin_Job_Tracker/mcp-claude.ts"
+           "/absolute/path/to/repository/mcp-claude.ts"
          ]
        }
      }
@@ -79,14 +74,14 @@ To run this tool locally on your own machine alongside the Claude Desktop App:
 
 ## 🌐 Connecting to a Web MCP Client (Remote)
 
-If you are hosting this on Hugging Face Spaces (or just running the SSE server locally):
+If you are hosting this on Hugging Face Spaces (or running the SSE server locally):
 
-1. Start the remote server:
-   ```bash
-   npm run mcp
-   ```
-2. The server will run on port `7860`.
-3. In your Web AI interface (like Claude for Enterprise), add a new Custom Connector and point it to the remote URL (or `http://localhost:7860/mcp` if testing locally).
+1. Open your Web AI interface (like Claude for Enterprise, Cursor, etc).
+2. Add a new **Custom MCP Connector** or Integration.
+3. Select **SSE (Server-Sent Events)** as the connection type.
+4. Enter your live Hugging Face URL:
+   > **`https://anjanii-linkedin-job-scraper.hf.space/mcp`**
+   *(Or `http://localhost:7860/mcp` if testing locally).*
 
 ---
 
